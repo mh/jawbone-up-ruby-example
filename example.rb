@@ -24,7 +24,7 @@ end
 get '/auth' do 
   code = params[:code]
   token = client.auth_code.get_token(code, 
-    :redirect_uri => 'http://127.0.0.1:9393/auth',
+    :redirect_uri => REDIRECT_URI,
     :headers => {'Authorization' => 'Bearer'})
     
   user = token.get('https://jawbone.com/nudge/api/v.1.1/users/@me/').body 
